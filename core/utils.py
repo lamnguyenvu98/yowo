@@ -280,3 +280,9 @@ def get_bboxes(out, label, anchors,
         train_idx += 1
 
     return all_pred_bboxes, all_true_bboxes
+
+def convert2cpu(gpu_matrix):
+    return torch.FloatTensor(gpu_matrix.size()).copy_(gpu_matrix)
+
+def convert2cpu_long(gpu_matrix):
+    return torch.LongTensor(gpu_matrix.size()).copy_(gpu_matrix)
